@@ -1,0 +1,50 @@
+<p>{{title}}</p>
+
+<h2>{{userinfo.username}}</h2>
+
+
+<h3>{{message}}</h3>
+
+
+<div title="我是悬浮属性">
+
+  鼠标放上出现悬浮字幕
+</div>
+<br/>
+<div [title]="userinfo.age">
+  年龄
+</div>
+
+<span [innerHTML]="content"></span>
+
+1+2={{1+2}}
+
+<ul>
+  <li *ngFor="let item of arr">
+    {{item}}
+  </li>
+</ul>
+
+<ol>
+  <li *ngFor="let item of items">
+    {{item}}
+  </li>
+</ol>
+
+<ol>
+  <li *ngFor="let item of userlist">
+    {{item.name}}----{{item.age}}
+  </li>
+</ol>
+
+<ul>
+  <li *ngFor="let item of phone">
+    <h2>{{item.cate}}</h2>
+    <ol>
+      <li *ngFor="let info of item.list">
+          {{info.title}}--{{info.price}}
+      </li>
+    </ol>
+  </li>
+</ul>
+

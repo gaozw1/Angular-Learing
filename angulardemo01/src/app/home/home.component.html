@@ -1,0 +1,80 @@
+<h1>引入图片</h1>
+<img src="assets/image/home.jpeg" alt="home">
+
+<img [src]="picUrl" alt="baidu" class='blue'>
+
+<ul>
+  <li *ngFor="let item of list;let key = index">
+    {{key}}---{{item.title}}
+  </li>
+</ul>
+
+<div *ngIf="flag">
+  <img src="assets/image/safari.jpg">
+</div>
+
+<div *ngIf="!flag">
+  <img src="assets/image/home.jpeg">
+</div>
+
+<div [ngSwitch]="orderStatus">
+  <div *ngSwitchCase="1">已经支付</div>
+  <div *ngSwitchCase="2">支付并发货</div>
+  <div *ngSwitchCase="3">已经收货</div>
+  <div *ngSwitchDefault>无效</div>
+</div>
+
+
+<div class="red">
+  使用class="red"，颜色固定
+</div>
+<div [ngClass]="{'green':true,'yellow':false}">
+  使用true和false控制样式
+</div>
+<div [ngClass]="{'green':!flag,'pink':flag}">
+  使用一个变量来控制样式
+</div>
+
+<br>
+<strong>循环数组，让数组的第一个元素的样式为red</strong>
+<li *ngFor="let item of list;let key=index" [ngClass]="{'red': key==0,'pink':key==1}">
+  {{key}}---{{item.title}}
+</li>
+
+<!-- 一般写法 -->
+<p style="color: red;">这是个p</p>
+
+<!-- 使用[ngStyle]，常量都要用引号 -->
+<p [ngStyle]="{'color': 'red'}">这是个p</p>
+
+<p [ngStyle]="{'color': attr}">这是p标签</p>
+
+{{today | date:'yyyy-MM-dd HH:mm:ss'}}
+
+<br>
+<button (click)='run()'>执行事件</button>
+<br>
+
+<button (click)='getDate()'>获取数据</button>
+<button (click)='setDate()'>改变数据</button>
+{{title}}
+
+<hr>
+
+键盘监听：{{key.key}}---{{key.keyCode}}
+<br>
+<p *ngIf="key.keyCode==13">按了一下回车</p>
+keyDown:按下接收
+<input type="text" (keydown)="keyDown($event)">
+{{keydown}}
+<br>
+keyUp:松开接收
+<input type="text" (keyup)="keyUp($event)">
+{{keyup}}
+
+<br>
+<button (click)='runEvent($event)'>改变颜色</button>
+
+<br>
+<input type='text' ([ngModel])='word' />
+{{word}}
